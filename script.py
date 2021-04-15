@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 
 def scraping_book():
-  url = "h ttp://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
+  url = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
   response = requests.get(url)
   if response.ok:
       soup = BeautifulSoup(response.content, "html.parser")
