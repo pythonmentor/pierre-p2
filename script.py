@@ -61,3 +61,8 @@ def product_price_excluding(soup):
   table_rows = table.find_all('tr')
   print(excluding)
   return excluding
+
+def product_review_rating(soup):
+  review_rating = soup.find('p', 'star-rating')['class'][1]
+  print(review_rating)
+  return review_rating
