@@ -11,7 +11,7 @@ def scraping_book():
         print(title)
         description = product_description(soup)
         category = product_category(soup)
-        upc = product_upc(soup)
+        upc = universal_product_code(soup)
 
      
 def product_description(soup):
@@ -24,7 +24,7 @@ def product_category(soup):
   print(category)
   return category
 
-def product_upc(soup):
+def universal_product_code(soup):
   upc = soup.find_all('td')[-0].text
   table = soup.find('table')
   table_rows = table.find_all('tr')
