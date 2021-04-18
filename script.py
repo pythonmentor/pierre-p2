@@ -25,6 +25,7 @@ def product_category(soup):
   return category
 
 def product_upc(soup):
-  upc = soup.select('table',{'table-striped' : 'td'})
+  upc = soup.find_all('td')[-0].text
+  table = soup.find('table')
+  table_rows = table.find_all('tr')
   print(upc)
-  return upc
