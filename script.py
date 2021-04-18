@@ -12,6 +12,11 @@ def scraping_book():
         description = product_description(soup)
         category = product_category(soup)
         upc = universal_product_code(soup)
+        image_url = product_image_url(soup)
+        number = product_number_available(soup)
+        including = product_price_including(soup)
+        excluding = product_price_excluding(soup)
+        review_rating = product_review_rating(soup)
 
      
 def product_description(soup):
@@ -29,3 +34,30 @@ def universal_product_code(soup):
   table = soup.find('table')
   table_rows = table.find_all('tr')
   print(upc)
+  return upc
+
+def product_image_url(soup):
+  image_url = soup.find('img')['src']
+  print(image_url)
+  return image_url
+
+def product_number_available(soup):
+  number = soup.find_all('td')[5].text
+  table = soup.find('table')
+  table_rows = table.find_all('tr')
+  print(number)
+  return number
+
+def product_price_including(soup):
+  including = soup.find_all('td')[3].text
+  table = soup.find('table')
+  table_rows = table.find_all('tr')
+  print(including)
+  return including
+  
+def product_price_excluding(soup):
+  excluding = soup.find_all('td')[2].text
+  table = soup.find('table')
+  table_rows = table.find_all('tr')
+  print(excluding)
+  return excluding
