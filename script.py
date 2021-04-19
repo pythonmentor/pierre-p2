@@ -7,7 +7,6 @@ import csv342 as csv
 def save_book_info_to_csv(book_info: dict):
     url = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
     response = requests.get(url)
-    save_book = save_book_info_to_csv(csv)
     with open(f'{book_info["slug"]}.csv','w', encoding='utf-8') as csvfile:
       writer = csv.DictWriter(csvfile, book_info, dialect='excel')
       writer.writeheader()
