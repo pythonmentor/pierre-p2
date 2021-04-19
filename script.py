@@ -3,12 +3,10 @@ import csv
 from bs4 import BeautifulSoup
 
 def save_book_info_to_csv(book_info: dict):
-    url = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
-    response = requests.get(url)
-    with open(f'{book_info["slug"]}.csv','w', encoding='utf-8') as csvfile:
-      writer = csv.DictWriter(csvfile, book_info, dialect='excel')
-      writer.writeheader()
-      writer.writerow(book_info)
+  with open(f'{book_info["slug"]}.csv','w', encoding='utf-8') as csvfile:
+    writer = csv.DictWriter(csvfile, book_info, dialect='excel')
+    writer.writeheader()
+
 
 
 
@@ -27,6 +25,17 @@ def scraping_book():
         including = product_price_including(soup)
         excluding = product_price_excluding(soup)
         review_rating = product_review_rating(soup)
+        return {
+          'title': title,
+          'description': description, 
+          'category' : category, 
+          'upc' : upc, 
+          'image_url' : image_url, 
+          'number' : number,
+          'including' : including,
+          'excluding' : excluding,
+          'review_rating' : review_rating,
+          }
 
 
      
