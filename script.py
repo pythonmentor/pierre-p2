@@ -1,8 +1,6 @@
 import requests
+import csv
 from bs4 import BeautifulSoup
-
-import csv342 as csv
-
 
 def save_book_info_to_csv(book_info: dict):
     url = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
