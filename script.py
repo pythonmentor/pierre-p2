@@ -1,4 +1,5 @@
 import requests
+import csv
 from bs4 import BeautifulSoup 
 
 
@@ -7,7 +8,7 @@ def scraping_book():
     response = requests.get(url)
     if response.ok:
         soup = BeautifulSoup(response.content, "html.parser")
-        title = soup.select_one('.product_main h1').text      # remplace find("div", {"class": "col-sm-6 product_main"}).find("h1")
+        title = soup.select_one('.product_main h1').text
         print(title)
         description = product_description(soup)
         category = product_category(soup)
