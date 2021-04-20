@@ -3,10 +3,9 @@ import csv
 from bs4 import BeautifulSoup
 
 def save_book_info_to_csv(book_info: dict):
-  with open(f'{book_info["slug"]}.csv','w', encoding='utf-8') as csvfile:
+  with open('book_info_to.csv','w', encoding='utf-8') as csvfile:
     writer = csv.DictWriter(csvfile, book_info, dialect='excel')
     writer.writeheader()
-
 
 
 
@@ -36,7 +35,6 @@ def scraping_book():
           'excluding' : excluding,
           'review_rating' : review_rating,
           }
-
 
      
 def product_description(soup):
